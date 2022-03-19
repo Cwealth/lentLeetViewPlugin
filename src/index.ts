@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { LentHttpInstance } from 'lent/dist/types';
 import { treeNodeView } from './treeNodeView';
+import { listNodeView } from './listNodeView'
 import { getUrlData } from 'lentleetcodeplugin';
 
 interface IRequestType {
@@ -15,7 +16,9 @@ const switchType = (v: IRequestType) => {
 				data: treeNodeView(v.demo)
 			};
 		case 'listnode':
-			return '暂无';
+			return {
+				data: listNodeView(v.demo)
+			};
 		default:
 			break;
 	}
